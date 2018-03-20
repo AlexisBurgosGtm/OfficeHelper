@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSGeneral" targetNamespace="http://tempuri.org/DSGeneral.xsd" xmlns:mstns="http://tempuri.org/DSGeneral.xsd" xmlns="http://tempuri.org/DSGeneral.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSGeneral" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSGeneral" msprop:Generator_UserDSName="DSGeneral">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblCliente" msprop:Generator_TableClassName="tblClienteDataTable" msprop:Generator_TableVarName="tabletblCliente" msprop:Generator_TablePropName="tblCliente" msprop:Generator_RowDeletingName="tblClienteRowDeleting" msprop:Generator_RowChangingName="tblClienteRowChanging" msprop:Generator_RowEvHandlerName="tblClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tblClienteRowDeleted" msprop:Generator_UserTableName="tblCliente" msprop:Generator_RowChangedName="tblClienteRowChanged" msprop:Generator_RowEvArgName="tblClienteRowChangeEvent" msprop:Generator_RowClassName="tblClienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODCLIENTE" msprop:Generator_ColumnVarNameInTable="columnCODCLIENTE" msprop:Generator_ColumnPropNameInRow="CODCLIENTE" msprop:Generator_ColumnPropNameInTable="CODCLIENTEColumn" msprop:Generator_UserColumnName="CODCLIENTE" type="xs:string" minOccurs="0" />
+              <xs:element name="NOMCLIENTE" msprop:Generator_ColumnVarNameInTable="columnNOMCLIENTE" msprop:Generator_ColumnPropNameInRow="NOMCLIENTE" msprop:Generator_ColumnPropNameInTable="NOMCLIENTEColumn" msprop:Generator_UserColumnName="NOMCLIENTE" type="xs:string" minOccurs="0" />
+              <xs:element name="DIRCLIENTE" msprop:Generator_ColumnVarNameInTable="columnDIRCLIENTE" msprop:Generator_ColumnPropNameInRow="DIRCLIENTE" msprop:Generator_ColumnPropNameInTable="DIRCLIENTEColumn" msprop:Generator_UserColumnName="DIRCLIENTE" type="xs:string" minOccurs="0" />
+              <xs:element name="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn" msprop:Generator_UserColumnName="MUNICIPIO" type="xs:string" minOccurs="0" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn" msprop:Generator_UserColumnName="DEPARTAMENTO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
