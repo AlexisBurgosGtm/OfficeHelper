@@ -576,8 +576,8 @@ Module Fcns
     End Function
 
     'variables globales para correo y pass del gmail
-    Public GmailEmisor As String = "digitacionprocterretalhulu@gmail.com"
-    Public GmailEmisorPass As String = "razors1805"
+    Public GmailEmisor As String
+    Public GmailEmisorPass As String
 
 
     Public Sub EnviarGmail2(ByVal Subject As String, ByVal Body As String)

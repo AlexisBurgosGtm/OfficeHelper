@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class ClassGeneral
+
+
     Dim cn As New SqlConnection
 
     Public Function AbrirConexionSql() As Boolean

@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Graphicloads-Flat-Finance-Unlock.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -93,13 +96,6 @@
       <DependentUpon>DSGeneral.xsd</DependentUpon>
     </Compile>
     <Compile Include="Fcns.vb" />
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="GlobalWaitForm.Designer.vb">
       <DependentUpon>GlobalWaitForm.vb</DependentUpon>
     </Compile>
@@ -133,6 +129,12 @@
     <Compile Include="Views\ViewReminders.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\ViewUpdate.Designer.vb">
+      <DependentUpon>ViewUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewUpdate.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GlobalWaitForm.resx">
@@ -150,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ViewReminders.resx">
       <DependentUpon>ViewReminders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewUpdate.resx">
+      <DependentUpon>ViewUpdate.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +180,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Graphicloads-Flat-Finance-Unlock.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

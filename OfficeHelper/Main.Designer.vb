@@ -52,9 +52,11 @@ Partial Class Main
         Me.NP_Inicio = New DevExpress.XtraBars.Navigation.NavigationPage()
         Me.TileNavPane1 = New DevExpress.XtraBars.Navigation.TileNavPane()
         Me.NavButton2 = New DevExpress.XtraBars.Navigation.NavButton()
+        Me.navBtn_Update = New DevExpress.XtraBars.Navigation.NavButton()
         Me.navbtn_clientes = New DevExpress.XtraBars.Navigation.NavButton()
         Me.navbtn_daily = New DevExpress.XtraBars.Navigation.NavButton()
         Me.NP_Clientes = New DevExpress.XtraBars.Navigation.NavigationPage()
+        Me.btnExport = New DevExpress.XtraEditors.SimpleButton()
         Me.btnClientesHome = New DevExpress.XtraEditors.SimpleButton()
         Me.GridClientes = New DevExpress.XtraGrid.GridControl()
         Me.TblClienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -65,7 +67,16 @@ Partial Class Main
         Me.colDIRCLIENTE = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.NP_Update = New DevExpress.XtraBars.Navigation.NavigationPage()
+        Me.btn_updateAtras = New DevExpress.XtraEditors.SimpleButton()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.TimerVoice = New System.Windows.Forms.Timer(Me.components)
+        Me.GridUpdate = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.btnUpdate_Clientes = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_Articulos = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_Stock = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_exportar = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.RibbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FlyoutMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlyoutMenu.SuspendLayout()
@@ -89,6 +100,9 @@ Partial Class Main
         CType(Me.TblClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSGeneral, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridViewClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.NP_Update.SuspendLayout()
+        CType(Me.GridUpdate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl1
@@ -162,10 +176,11 @@ Partial Class Main
         Me.NavFrameMain.Controls.Add(Me.NP_Agotados)
         Me.NavFrameMain.Controls.Add(Me.NP_Inicio)
         Me.NavFrameMain.Controls.Add(Me.NP_Clientes)
+        Me.NavFrameMain.Controls.Add(Me.NP_Update)
         Me.NavFrameMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NavFrameMain.Location = New System.Drawing.Point(0, 49)
         Me.NavFrameMain.Name = "NavFrameMain"
-        Me.NavFrameMain.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_Inicio, Me.NP_Send, Me.NP_Agotados, Me.NP_Clientes})
+        Me.NavFrameMain.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_Inicio, Me.NP_Send, Me.NP_Agotados, Me.NP_Clientes, Me.NP_Update})
         Me.NavFrameMain.SelectedPage = Me.NP_Inicio
         Me.NavFrameMain.Size = New System.Drawing.Size(907, 475)
         Me.NavFrameMain.TabIndex = 5
@@ -357,10 +372,11 @@ Partial Class Main
         '
         'TileNavPane1
         '
-        Me.TileNavPane1.Appearance.BackColor = System.Drawing.Color.Gray
+        Me.TileNavPane1.Appearance.BackColor = System.Drawing.Color.DodgerBlue
         Me.TileNavPane1.Appearance.Options.UseBackColor = True
         Me.TileNavPane1.ButtonPadding = New System.Windows.Forms.Padding(12)
         Me.TileNavPane1.Buttons.Add(Me.NavButton2)
+        Me.TileNavPane1.Buttons.Add(Me.navBtn_Update)
         Me.TileNavPane1.Buttons.Add(Me.navbtn_clientes)
         Me.TileNavPane1.Buttons.Add(Me.navbtn_daily)
         '
@@ -389,6 +405,13 @@ Partial Class Main
         Me.NavButton2.IsMain = True
         Me.NavButton2.Name = "NavButton2"
         '
+        'navBtn_Update
+        '
+        Me.navBtn_Update.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right
+        Me.navBtn_Update.Caption = "Update"
+        Me.navBtn_Update.Glyph = CType(resources.GetObject("navBtn_Update.Glyph"), System.Drawing.Image)
+        Me.navBtn_Update.Name = "navBtn_Update"
+        '
         'navbtn_clientes
         '
         Me.navbtn_clientes.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right
@@ -405,10 +428,19 @@ Partial Class Main
         '
         'NP_Clientes
         '
+        Me.NP_Clientes.Controls.Add(Me.btnExport)
         Me.NP_Clientes.Controls.Add(Me.btnClientesHome)
         Me.NP_Clientes.Controls.Add(Me.GridClientes)
         Me.NP_Clientes.Name = "NP_Clientes"
         Me.NP_Clientes.Size = New System.Drawing.Size(907, 475)
+        '
+        'btnExport
+        '
+        Me.btnExport.Location = New System.Drawing.Point(541, 10)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(75, 23)
+        Me.btnExport.TabIndex = 20
+        Me.btnExport.Text = "try"
         '
         'btnClientesHome
         '
@@ -493,12 +525,82 @@ Partial Class Main
         Me.colDEPARTAMENTO.VisibleIndex = 4
         Me.colDEPARTAMENTO.Width = 135
         '
+        'NP_Update
+        '
+        Me.NP_Update.Controls.Add(Me.btnUpdate_exportar)
+        Me.NP_Update.Controls.Add(Me.btnUpdate_Stock)
+        Me.NP_Update.Controls.Add(Me.btnUpdate_Articulos)
+        Me.NP_Update.Controls.Add(Me.btnUpdate_Clientes)
+        Me.NP_Update.Controls.Add(Me.GridUpdate)
+        Me.NP_Update.Controls.Add(Me.btn_updateAtras)
+        Me.NP_Update.Name = "NP_Update"
+        Me.NP_Update.Size = New System.Drawing.Size(907, 475)
+        '
+        'btn_updateAtras
+        '
+        Me.btn_updateAtras.Location = New System.Drawing.Point(12, 6)
+        Me.btn_updateAtras.Name = "btn_updateAtras"
+        Me.btn_updateAtras.Size = New System.Drawing.Size(75, 23)
+        Me.btn_updateAtras.TabIndex = 20
+        Me.btn_updateAtras.Text = "Home"
+        '
         'GridColumn1
         '
         Me.GridColumn1.FieldName = "CODCLIENTE"
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.Visible = True
         Me.GridColumn1.VisibleIndex = 0
+        '
+        'TimerVoice
+        '
+        '
+        'GridUpdate
+        '
+        Me.GridUpdate.Location = New System.Drawing.Point(14, 98)
+        Me.GridUpdate.MainView = Me.GridView1
+        Me.GridUpdate.MenuManager = Me.RibbonControl1
+        Me.GridUpdate.Name = "GridUpdate"
+        Me.GridUpdate.Size = New System.Drawing.Size(883, 366)
+        Me.GridUpdate.TabIndex = 21
+        Me.GridUpdate.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GridUpdate
+        Me.GridView1.Name = "GridView1"
+        '
+        'btnUpdate_Clientes
+        '
+        Me.btnUpdate_Clientes.Location = New System.Drawing.Point(132, 39)
+        Me.btnUpdate_Clientes.Name = "btnUpdate_Clientes"
+        Me.btnUpdate_Clientes.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Clientes.TabIndex = 22
+        Me.btnUpdate_Clientes.Text = "Clientes"
+        '
+        'btnUpdate_Articulos
+        '
+        Me.btnUpdate_Articulos.Location = New System.Drawing.Point(283, 39)
+        Me.btnUpdate_Articulos.Name = "btnUpdate_Articulos"
+        Me.btnUpdate_Articulos.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Articulos.TabIndex = 23
+        Me.btnUpdate_Articulos.Text = "Artículos"
+        '
+        'btnUpdate_Stock
+        '
+        Me.btnUpdate_Stock.Location = New System.Drawing.Point(435, 39)
+        Me.btnUpdate_Stock.Name = "btnUpdate_Stock"
+        Me.btnUpdate_Stock.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Stock.TabIndex = 24
+        Me.btnUpdate_Stock.Text = "Stock"
+        '
+        'btnUpdate_exportar
+        '
+        Me.btnUpdate_exportar.Image = CType(resources.GetObject("btnUpdate_exportar.Image"), System.Drawing.Image)
+        Me.btnUpdate_exportar.Location = New System.Drawing.Point(773, 53)
+        Me.btnUpdate_exportar.Name = "btnUpdate_exportar"
+        Me.btnUpdate_exportar.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_exportar.TabIndex = 25
+        Me.btnUpdate_exportar.Text = "Exportar"
         '
         'Main
         '
@@ -509,6 +611,7 @@ Partial Class Main
         Me.Controls.Add(Me.FlyoutMenu)
         Me.Controls.Add(Me.RibbonStatusBar1)
         Me.Controls.Add(Me.RibbonControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
         Me.Ribbon = Me.RibbonControl1
         Me.StatusBar = Me.RibbonStatusBar1
@@ -537,6 +640,9 @@ Partial Class Main
         CType(Me.TblClienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSGeneral, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridViewClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.NP_Update.ResumeLayout(False)
+        CType(Me.GridUpdate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -587,4 +693,15 @@ Partial Class Main
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents btnSendHome As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnClientesHome As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnExport As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TimerVoice As Timer
+    Friend WithEvents navBtn_Update As DevExpress.XtraBars.Navigation.NavButton
+    Friend WithEvents NP_Update As DevExpress.XtraBars.Navigation.NavigationPage
+    Friend WithEvents btn_updateAtras As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUpdate_exportar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUpdate_Stock As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUpdate_Articulos As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUpdate_Clientes As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GridUpdate As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
 End Class
