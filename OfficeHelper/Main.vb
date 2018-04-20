@@ -35,7 +35,7 @@ Public Class Main
     Dim CONTADOR As Integer = 0
     Dim MIARRAY(CONTADOR) As String
 
-    Private Sub SwitchVoice_Toggled(sender As Object, e As EventArgs)
+    Private Sub SwitchVoice_Toggled(sender As Object, e As EventArgs) Handles SwitchVoice.Toggled
         Me.TimerVoice.Enabled = True
     End Sub
 
@@ -82,29 +82,29 @@ Public Class Main
         'End If
     End Sub
     Private Sub TimerVoice_Tick(sender As Object, e As EventArgs) Handles TimerVoice.Tick
-        ' If Me.SwitchVoice.IsOn = True Then
+        If Me.SwitchVoice.IsOn = True Then
 
-        Dim Vocabulario As New GrammarBuilder
-        Vocabulario.Append(New Choices("Alessa, abre el control de rutas",
-                                       "Alessa, ¿qué hora es?",
-                                       "Alessa, navegar al envio de correos",
-                                       "Alessa, navegar al inicio",
-                                       "Alessa, abre el sistema de ventas",
-                                       "Alessa, abre facturación"
-                                                                           ))
-        Try
+            Dim Vocabulario As New GrammarBuilder
+            Vocabulario.Append(New Choices("Alessa, abre el control de rutas",
+                                           "Alessa, ¿qué hora es?",
+                                           "Alessa, navegar al envio de correos",
+                                           "Alessa, navegar al inicio",
+                                           "Alessa, abre el sistema de ventas",
+                                           "Alessa, abre facturación"
+                                                                               ))
+            Try
 
-            REC.LoadGrammar(New Grammar(Vocabulario))
-            REC.SetInputToDefaultAudioDevice()
-            REC.RecognizeAsync(RecognizeMode.Multiple)
-            AddHandler REC.SpeechRecognized, AddressOf RECONOCE
-            AddHandler REC.SpeechRecognitionRejected, AddressOf NORECONOCE
-            AddHandler REC.SpeechDetected, AddressOf DETECTA
+                REC.LoadGrammar(New Grammar(Vocabulario))
+                REC.SetInputToDefaultAudioDevice()
+                REC.RecognizeAsync(RecognizeMode.Multiple)
+                AddHandler REC.SpeechRecognized, AddressOf RECONOCE
+                AddHandler REC.SpeechRecognitionRejected, AddressOf NORECONOCE
+                AddHandler REC.SpeechDetected, AddressOf DETECTA
 
-        Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
-        'End If
+            End Try
+        End If
 
         TimerVoice.Enabled = False
     End Sub
@@ -233,4 +233,6 @@ Public Class Main
     Private Sub btnUpdate_exportar_Click(sender As Object, e As EventArgs) Handles btnUpdate_exportar.Click
         Me.GridUpdate.ExportToXlsx("C:\OfficceHelper\Update.xlsx")
     End Sub
+
+
 End Class

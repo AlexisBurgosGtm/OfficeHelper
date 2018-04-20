@@ -68,15 +68,16 @@ Partial Class Main
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.NP_Update = New DevExpress.XtraBars.Navigation.NavigationPage()
+        Me.btnUpdate_exportar = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_Stock = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_Articulos = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpdate_Clientes = New DevExpress.XtraEditors.SimpleButton()
+        Me.GridUpdate = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.btn_updateAtras = New DevExpress.XtraEditors.SimpleButton()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.TimerVoice = New System.Windows.Forms.Timer(Me.components)
-        Me.GridUpdate = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.btnUpdate_Clientes = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnUpdate_Articulos = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnUpdate_Stock = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnUpdate_exportar = New DevExpress.XtraEditors.SimpleButton()
+        Me.SwitchVoice = New DevExpress.XtraEditors.ToggleSwitch()
         CType(Me.RibbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FlyoutMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlyoutMenu.SuspendLayout()
@@ -103,6 +104,7 @@ Partial Class Main
         Me.NP_Update.SuspendLayout()
         CType(Me.GridUpdate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SwitchVoice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl1
@@ -366,6 +368,7 @@ Partial Class Main
         '
         'NP_Inicio
         '
+        Me.NP_Inicio.Controls.Add(Me.SwitchVoice)
         Me.NP_Inicio.Controls.Add(Me.TileNavPane1)
         Me.NP_Inicio.Name = "NP_Inicio"
         Me.NP_Inicio.Size = New System.Drawing.Size(907, 475)
@@ -536,6 +539,54 @@ Partial Class Main
         Me.NP_Update.Name = "NP_Update"
         Me.NP_Update.Size = New System.Drawing.Size(907, 475)
         '
+        'btnUpdate_exportar
+        '
+        Me.btnUpdate_exportar.Image = CType(resources.GetObject("btnUpdate_exportar.Image"), System.Drawing.Image)
+        Me.btnUpdate_exportar.Location = New System.Drawing.Point(773, 53)
+        Me.btnUpdate_exportar.Name = "btnUpdate_exportar"
+        Me.btnUpdate_exportar.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_exportar.TabIndex = 25
+        Me.btnUpdate_exportar.Text = "Exportar"
+        '
+        'btnUpdate_Stock
+        '
+        Me.btnUpdate_Stock.Location = New System.Drawing.Point(435, 39)
+        Me.btnUpdate_Stock.Name = "btnUpdate_Stock"
+        Me.btnUpdate_Stock.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Stock.TabIndex = 24
+        Me.btnUpdate_Stock.Text = "Stock"
+        '
+        'btnUpdate_Articulos
+        '
+        Me.btnUpdate_Articulos.Location = New System.Drawing.Point(283, 39)
+        Me.btnUpdate_Articulos.Name = "btnUpdate_Articulos"
+        Me.btnUpdate_Articulos.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Articulos.TabIndex = 23
+        Me.btnUpdate_Articulos.Text = "Artículos"
+        '
+        'btnUpdate_Clientes
+        '
+        Me.btnUpdate_Clientes.Location = New System.Drawing.Point(132, 39)
+        Me.btnUpdate_Clientes.Name = "btnUpdate_Clientes"
+        Me.btnUpdate_Clientes.Size = New System.Drawing.Size(124, 39)
+        Me.btnUpdate_Clientes.TabIndex = 22
+        Me.btnUpdate_Clientes.Text = "Clientes"
+        '
+        'GridUpdate
+        '
+        Me.GridUpdate.Location = New System.Drawing.Point(14, 98)
+        Me.GridUpdate.MainView = Me.GridView1
+        Me.GridUpdate.MenuManager = Me.RibbonControl1
+        Me.GridUpdate.Name = "GridUpdate"
+        Me.GridUpdate.Size = New System.Drawing.Size(883, 366)
+        Me.GridUpdate.TabIndex = 21
+        Me.GridUpdate.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GridUpdate
+        Me.GridView1.Name = "GridView1"
+        '
         'btn_updateAtras
         '
         Me.btn_updateAtras.Location = New System.Drawing.Point(12, 6)
@@ -554,53 +605,15 @@ Partial Class Main
         'TimerVoice
         '
         '
-        'GridUpdate
+        'SwitchVoice
         '
-        Me.GridUpdate.Location = New System.Drawing.Point(14, 98)
-        Me.GridUpdate.MainView = Me.GridView1
-        Me.GridUpdate.MenuManager = Me.RibbonControl1
-        Me.GridUpdate.Name = "GridUpdate"
-        Me.GridUpdate.Size = New System.Drawing.Size(883, 366)
-        Me.GridUpdate.TabIndex = 21
-        Me.GridUpdate.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
-        'GridView1
-        '
-        Me.GridView1.GridControl = Me.GridUpdate
-        Me.GridView1.Name = "GridView1"
-        '
-        'btnUpdate_Clientes
-        '
-        Me.btnUpdate_Clientes.Location = New System.Drawing.Point(132, 39)
-        Me.btnUpdate_Clientes.Name = "btnUpdate_Clientes"
-        Me.btnUpdate_Clientes.Size = New System.Drawing.Size(124, 39)
-        Me.btnUpdate_Clientes.TabIndex = 22
-        Me.btnUpdate_Clientes.Text = "Clientes"
-        '
-        'btnUpdate_Articulos
-        '
-        Me.btnUpdate_Articulos.Location = New System.Drawing.Point(283, 39)
-        Me.btnUpdate_Articulos.Name = "btnUpdate_Articulos"
-        Me.btnUpdate_Articulos.Size = New System.Drawing.Size(124, 39)
-        Me.btnUpdate_Articulos.TabIndex = 23
-        Me.btnUpdate_Articulos.Text = "Artículos"
-        '
-        'btnUpdate_Stock
-        '
-        Me.btnUpdate_Stock.Location = New System.Drawing.Point(435, 39)
-        Me.btnUpdate_Stock.Name = "btnUpdate_Stock"
-        Me.btnUpdate_Stock.Size = New System.Drawing.Size(124, 39)
-        Me.btnUpdate_Stock.TabIndex = 24
-        Me.btnUpdate_Stock.Text = "Stock"
-        '
-        'btnUpdate_exportar
-        '
-        Me.btnUpdate_exportar.Image = CType(resources.GetObject("btnUpdate_exportar.Image"), System.Drawing.Image)
-        Me.btnUpdate_exportar.Location = New System.Drawing.Point(773, 53)
-        Me.btnUpdate_exportar.Name = "btnUpdate_exportar"
-        Me.btnUpdate_exportar.Size = New System.Drawing.Size(124, 39)
-        Me.btnUpdate_exportar.TabIndex = 25
-        Me.btnUpdate_exportar.Text = "Exportar"
+        Me.SwitchVoice.Location = New System.Drawing.Point(565, 58)
+        Me.SwitchVoice.MenuManager = Me.RibbonControl1
+        Me.SwitchVoice.Name = "SwitchVoice"
+        Me.SwitchVoice.Properties.OffText = "NO"
+        Me.SwitchVoice.Properties.OnText = "ACTIVADO"
+        Me.SwitchVoice.Size = New System.Drawing.Size(126, 24)
+        Me.SwitchVoice.TabIndex = 1
         '
         'Main
         '
@@ -643,6 +656,7 @@ Partial Class Main
         Me.NP_Update.ResumeLayout(False)
         CType(Me.GridUpdate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SwitchVoice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -704,4 +718,5 @@ Partial Class Main
     Friend WithEvents btnUpdate_Clientes As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GridUpdate As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents SwitchVoice As DevExpress.XtraEditors.ToggleSwitch
 End Class
